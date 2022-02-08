@@ -1,0 +1,68 @@
+#include<stdio.h>
+ struct student
+ {
+char name[20];
+long int rollno;
+int marks[10];
+int total;
+float average;
+char rem[10];
+char cl[20];
+}s[100];
+
+int main()
+{
+int a,b,n,flag=1;
+ char ch;
+ printf("no of students : \n");
+ scanf("%d",&n);
+for(a=1;a<=n;++a){
+
+ printf("\n\nEnter the details of %d students : ", n-a+1);
+ printf("\n\nEnter student %d Name : ", a);
+scanf("%s", s[a].name);
+printf("\n\nEnter student%dRoll Number : ", a);
+scanf("%ld", &s[a].rollno);
+ s[a].total=0;
+for(b=1;b<=5;++b){
+printf("\n\nEnter the mark of subject-%d : ", b);
+ scanf("%d", &s[a].marks[b]);
+ s[a].total += s[a].marks[b];
+ if(s[a].marks[b]<40)
+ flag=0;
+}
+ s[a].average = (float)(s[a].total)/5.0;
+ if((s[a].average>=75)&&(flag==1))
+strcpy(s[a].cl,"Distinction");
+ else
+ if((students[a].average>=60)&&(flag==1))
+strcpy(students[a].cl,"First Class");
+ else
+if((s[a].average>=50)&&(flag==1))
+strcpy(s[a].cl,"Second Class");
+else
+if((s[a].average>=40)&&(flag==1))
+strcpy(s[a].cl,"Third Class");
+ if(flag==1)
+strcpy(students[a].rem,"Pass");
+ else
+ strcpy(s[a].rem,"Fail");
+ flag=1;
+}
+ for(a=1;a<=n;++a)
+ {
+ clrscr();
+printf("\n\n\t\t\t\tMark Sheet\n");
+printf("\nName of Student : %s", s[a].name);
+printf("\t\t\t\t Roll No : %ld", s[a].rollno);
+}
+for(b=1;b<=5;b++)
+{
+ printf("\n\n\t Subject %d \t\t :\t %d", b, students[a].marks[b]);
+ printf("\n\n Totl Marks : %d", s[a].total);
+printf("\t\t\t\t Average Marks : %5.2f", s[a].average);
+printf("\n\n Class : %s", s[a].cl);
+printf("\t\t\t\t\t Status : %s", s[a].rem);
+}
+return(0);
+}
